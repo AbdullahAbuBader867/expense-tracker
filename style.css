@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8fafc !important;
+}
+
+.expense-tracker {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 1rem;
+    max-width: 620px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.expense-tracker h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.expense-tracker input,
+.expense-tracker select {
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.expense-tracker input:foucs {
+    border: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.expense-tracker form button[type="submit"],
+.expense-tracker form .cancel-edite {
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+.expense-tracker form button[type="submit"]:hover,
+.expense-tracker form .cancel-edite:hover {
+    background: #4f46e5;
+}
+
+.expense-tracker .summary-panel {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 4rem 0 20px 0;
+}
+
+.expense-tracker .summary-panel label {
+    font-size: 12px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.expense-tracker .summary-panel .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.expense-tracker .summary-panel .value.total {
+    color: #6366f1;
+}
+
+.expense-tracker .average-line {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 8px;
+}
+
+.expense-tracker .breakdown-bars .label-category {
+    width: 9rem;
+}
+
+.expense-tracker .breakdown-bars .precent {
+    width: 4rem;
+}
+
+.expense-tracker .breakdown-bars .progress-bar {
+    background: #e2e8f0;
+}
+
+.expense-tracker .breakdown-bars .food .progress-bar {
+    background: #ef4444;
+}
+
+.expense-tracker .breakdown-bars .transport .progress-bar {
+    background: #3b82f6;
+}
+
+.expense-tracker .breakdown-bars .bills .progress-bar {
+    background: #f59e0b;
+}
+
+.expense-tracker .breakdown-bars .fun .progress-bar {
+    background: #a855f7;
+}
+
+.expense-tracker .breakdown-bars .other .progress-bar {
+    background: #64748b;
+}
+
+.expense-tracker .searching-and-filters .search .fa-magnifying-glass {
+    top: 0.6rem;
+    left: 0.6rem;
+    cursor: pointer;
+}
+
+.expense-tracker .searching-and-filters .search input {
+    padding-left: 2.5rem;
+}
+
+.expense-tracker .searching-and-filters button[type="button"] {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    margin: 0 0.3rem;
+    padding: 0.3rem 0.4rem;
+    border-radius: 8px;
+}
+
+.expense-tracker .searching-and-filters button[type="button"].active {
+    background: aliceblue;
+    color: blueviolet;
+}
+
+.expense-tracker .sort {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.expense-tracker .sort label,
+.expense-tracker .sort select {
+    cursor: pointer;
+}
+
+.expense-tracker .box-expense .expense {
+    border: 1px solid #f1f5f9;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+}
+
+.expense-tracker .box-expense .expense .description {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.expense-tracker .box-expense .expense .category.food {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.expense-tracker .box-expense .expense .category.transport {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.expense-tracker .box-expense .expense .category.fun {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.expense-tracker .box-expense .expense .category.bills {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.expense-tracker .box-expense .expense .category.other {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.expense-tracker .box-expense .expense .date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.expense-tracker .box-expense .expense .amount {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.expense-tracker .box-expense .expense .action button {
+    background: none;
+    border: none;
+    padding: 0 0.3rem;
+}
+
+.expense-tracker .box-expense .expense .action i {
+    background: transparent;
+    color: #94a3b8;
+}
+
+.expense-tracker .box-expense .expense .action .fa-pen:hover {
+    color: #6366f1;
+}
+
+.expense-tracker .box-expense .expense .action .fa-x:hover {
+    color: #ef4444;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 0;
+    color: #94a3b8;
+}
+
+/* Start Message Error */
+.caret-up {
+    width: 1rem;
+    height: 1rem;
+    transform: rotateZ(45deg);
+    font-size: 2rem;
+    border-top: 1px solid rgba(255, 0, 0, 0.401);
+    border-left: 1px solid rgba(255, 0, 0, 0.401);
+    z-index: 10;
+    top: 2.8rem;
+    left: 15.5rem;
+}
+
+.error-title {
+    font-size: small;
+    top: 3.3rem;
+    left: 14rem;
+    box-shadow: 0 3px 10px 1px #dacbcb69;
+    border: 1px solid rgba(255, 0, 0, 0.401);
+    z-index: 9;
+}
+
+/* End Message Error */

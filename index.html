@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Expense Tracker</title>
+        <!-- Add link style css -->
+        <link rel="stylesheet" href="style.css">
+        <!-- Add link Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" >
+        <!-- Add link Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Add Font Family -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Start Expense Tracker -->
+        <div class="expense-tracker container">
+            <!-- Title -->
+            <h1 class="text-center">Expense Tracker</h1>
+            <!-- Form Inputs -->
+            <form class="position-relative">
+                <input type="text" class="form-control" id="descriptionInput" placeholder="Enter Description...">
+                <!-- Error Message -->
+                    <div class="visually-hidden" id="messageError">
+                        <div class="caret-up  text-light position-absolute  bg-light"></div>
+                        <div class="error-title position-absolute bg-light p-2 rounded-2">
+                            <i class="fa-solid fa-exclamation bg-warning text-white p-1 rounded-1"></i>
+                            This Field Is Required
+                        </div>
+                    </div>
+                <div class="input-group row">
+                    <div class="col-4 d-flex flex-column justify-content-start my-3">
+                        <label class="form-label" for="amountInput">Amount</label>
+                        <input type="number" class="form-control" id="amountInput" step="0.1" placeholder="Enter Amount" min="0">
+                    </div>
+                    <div class="col-4 d-flex flex-column justify-content-start my-3">
+                        <label for="categoryInput" class="form-label">Category</label>
+                        <select class="form-select" id="categoryInput">
+                            <option value="food" >Food</option>
+                            <option value="transport" >Transoprt</option>
+                            <option value="fun" >Fun</option>
+                            <option value="bills" >Bills</option>
+                            <option value="other" >Other</option>
+                        </select>
+                    </div>
+                    <div class="col-4 d-flex flex-column justify-content-start my-3">
+                        <label class="form-label" for="dateInput">Date</label>
+                        <input type="date" class="form-control" id="dateInput">
+                    </div>
+                </div>
+                <div class="float-end">
+                    <button type="button" class="cancel-edite visually-hidden">Cancel Edite</button>
+                    <button type="submit" class="" id="btnAddExpense">Add expense</button>
+                </div>
+            </form>
+
+            <!-- Summary Panel -->
+            <div class="summary-panel ">
+                <!-- The result -->
+                <div class="row mb-3">
+                    <div class="col-4 d-flex flex-column align-items-center">
+                        <label>Total</label>
+                        <span class="value total" id="totalResult">$142.50 </span>
+                    </div>
+                    <div class="col-4 d-flex flex-column align-items-center">
+                        <label>Transactions</label>
+                        <span class="value" id="counterTransactions">8</span>
+                    </div>
+                    <div class="col-4 d-flex flex-column align-items-center">
+                        <label>Largest</label>
+                        <span class="value" id="largestAmount">$48.00</span>
+                    </div>
+                </div>
+
+                <div class="average-line text-center mb-3">Average: <span id="averagePerTransacton">$17.81</span> per transaction </div>
+                <!-- breakdown bars -->
+                <div class="row breakdown-bars">
+                    <div class="col-6 food visually-hidden d-flex align-items-center px-2">
+                        <span class="label-category">Food</span>
+                        <div class="progress w-100 mx-2">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <span class="precent-food precent">50%</span>
+                    </div>
+                    <div class="col-6 transport visually-hidden d-flex align-items-center px-2">
+                        <span class="label-category">Transport</span>
+                        <div class="progress w-100 mx-2">
+                            <div class="progress-bar "></div>
+                        </div>
+                        <span class="precent-transport precent">100%</span>
+                    </div>
+                    <div class="col-6 fun visually-hidden d-flex align-items-center px-2">
+                        <span class="label-category">Fun</span>
+                        <div class="progress w-100 mx-2">
+                            <div class="progress-bar "></div>
+                        </div>
+                        <span class="precent-fun precent">50%</span>
+                    </div>
+                    <div class="col-6 bills visually-hidden d-flex align-items-center px-2">
+                        <span class="label-category">Bills</span>
+                        <div class="progress w-100 mx-2">
+                            <div class="progress-bar "></div>
+                        </div>
+                        <span class="precent-bills precent">50%</span>
+                    </div>
+                    <div class="col-6 other visually-hidden d-flex align-items-center px-2">
+                        <span class="label-category">Other</span>
+                        <div class="progress w-100 mx-2">
+                            <div class="progress-bar "></div>
+                        </div>
+                        <span class="precent-other precent">50%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Searching and Filters -->
+            <div class="searching-and-filters d-flex align-items-center justify-content-between mb-3">
+                <div class="search position-relative">
+                    <label for="searchInput">
+                        <i class="fa-solid fa-magnifying-glass position-absolute"></i>
+                    </label>
+                    <input type="search" class="py-2" id="searchInput" placeholder="Searching...">
+                </div>
+                <div class="filters">
+                    <button type="button" class="filter active" data-filter="all">All</button>
+                    <button type="button" class="filter" data-filter="food">Food</button>
+                    <button type="button" class="filter" data-filter="transport">Transport</button>
+                    <button type="button" class="filter" data-filter="fun">Fun</button>
+                    <button type="button" class="filter" data-filter="bills">Bills</button>
+                    <button type="button" class="filter" data-filter="other">Other</button>
+                </div>
+            </div>
+
+            <!-- Sorting -->
+            <div class="sort">
+                <label for="sorting">Sort: </label>
+                <select id="sorting" >
+                    <option value="Newest first" selected>Newest first</option>
+                    <option value="Oldest first">Oldest first</option>
+                    <option value="Highest amount">Highest amount</option>
+                    <option value="Lowest amount">Lowest amount</option>
+                </select>
+            </div>
+
+            <!-- Box Expense -->
+            <div class="box-expense mt-3">
+            </div>
+        </div>
+        <!-- End Expense Tracker -->
+        
+        <!-- Add File main JS -->
+        <script src="main.js"></script>
+    </body>
+</html>
